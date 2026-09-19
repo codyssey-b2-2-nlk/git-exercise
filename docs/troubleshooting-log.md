@@ -36,9 +36,23 @@
 
 ## `stash`
 
-- 일시와 작업자:
-- 보관해야 했던 변경:
+- 일시와 작업자: 2026-09-19, JaeHoon Lee
+- 보관해야 했던 변경: `team/README.md`에 팀 결과물과 구성원별 기여를
+  정리할 위치라는 설명을 추가하던 중, stash 실습을 위해 미완성 변경을
+  작업 트리에서 잠시 치웠다.
 - 실행한 명령:
-- `stash list` 증빙:
-- 복원 명령과 결과:
-- 확인 결과:
+
+  ```console
+  $ git stash push -m "wip: document team workspace"
+  Saved working directory and index state On ljh: wip: document team workspace
+  $ git stash list
+  stash@{0}: On ljh: wip: document team workspace
+  ```
+
+- `stash list` 증빙: `stash@{0}`의 객체 ID는
+  `4eac5632d085796f6d25716b7a21ed340f159606`이었다.
+- 복원 명령과 결과: `git stash pop`으로 변경을 복원했다. Git은
+  `team/README.md`를 수정 상태로 되돌린 뒤 위 stash를 drop했다.
+- 확인 결과: stash 직후 `git status --short` 출력은 비어 있었고,
+  복원 후에는 ` M team/README.md`가 표시됐다. `git diff`로 추가한 설명이
+  그대로 복원된 것을 확인했으며, 마지막 `git stash list`는 비어 있었다.

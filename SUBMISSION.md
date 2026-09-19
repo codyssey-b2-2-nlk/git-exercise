@@ -76,4 +76,4 @@ review 또는 line comment URL을 기록한다.
 | `commit --amend` | [`a9cac7f` → `ec50144`](docs/troubleshooting-log.md#commit---amend) |
 | `reset --soft` | TBD |
 | `revert` | TBD |
-| `stash` | TBD |
+| `stash` | [`stash@{0}` 생성·목록 확인·복원 로그](docs/troubleshooting-log.md#stash) |
