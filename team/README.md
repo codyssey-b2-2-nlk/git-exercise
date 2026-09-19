@@ -1,6 +1,6 @@
 # team
 
-- Sanghwa-Na lives in seoul
+- Sanghwa-Na lives in seoul, today
 
 Team Git Collaboration Project
 
