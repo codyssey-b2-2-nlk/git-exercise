@@ -4,17 +4,23 @@
 비자명 충돌이어야 한다. 단순히 충돌 표시를 지운 사실보다 왜 그 결과를
 선택했는지와 어떻게 확인했는지를 남긴다.
 
-## 사례 1
+## 사례 1 — 일반 충돌
 
-- 일시:
-- 참여자:
-- 관련 브랜치와 PR:
-- 충돌 파일:
-- 충돌 원인:
-- 양쪽 변경의 의도:
-- 선택한 해결 방법과 이유:
-- 확인한 명령 또는 테스트:
-- 해결 커밋:
+- 일시: 2026-09-19
+- 참여자: JaeHoon Lee — 충돌 재현과 해결
+- 관련 브랜치와 PR: `exercise/commit-evidence`,
+  `exercise/pr-evidence`; PR 없음
+- 충돌 파일: `team/README.md`
+- 충돌 원인: 두 브랜치가 구성원별 결과물에 연결할 증빙의 종류를 같은
+  문장에서 각각 커밋 링크와 PR 링크로 바꿨다.
+- 양쪽 변경의 의도: `exercise/commit-evidence`는 개별 커밋을 직접
+  추적하려 했고, `exercise/pr-evidence`는 리뷰와 병합 맥락까지 남기려
+  했다.
+- 선택한 해결 방법과 이유: 두 링크 모두 유효한 기여 증빙이므로 한쪽을
+  버리지 않고 “커밋 또는 PR 링크”로 합쳤다.
+- 확인한 명령 또는 테스트: `git diff --cached --check`, conflict marker
+  검색, `git show --cc --stat 2fde409`
+- 해결 커밋: [`2fde409`](https://github.com/dlwognsdc610-maker/git-exercise/commit/2fde4091b1e12297a36acf60d7eb47fdaedb3b71)
 
 ## 사례 2 — 비자명 충돌
 
