@@ -1,7 +1,5 @@
 # team
 
-- Sanghwa-Na lives in seoul, today
-
 Team Git Collaboration Project
 
 1. 프로젝트 소개
@@ -12,3 +10,44 @@ GitHub Flow 기반의 브랜치 전략을 적용하고, Issue 생성부터 Pull 
 
 복잡한 기능 개발보다는 팀원 간의 협업과 Git 워크플로우에 대한 이해를 목표로 합니다.
 
+---
+
+2. 팀 소개
+
+팀원: 총 3명
+마리너2기_나상화 <bdn980@gmail.com>
+마리너2기_김승현 <sevencvter@gmail.com>
+마리너_이재훈 <dlwognsdc610@gmail.com>
+
+개발 환경: Git, GitHub
+
+---
+
+3. 협업 방식
+
+브랜치 전략
+
+GitHub Flow를 적용합니다.
+
+main: 항상 정상적인 상태를 유지하는 기본 브랜치
+
+feature/*: 팀원별 작업 브랜치
+
+모든 변경 사항은 feature 브랜치에서 작업하며, Pull Request를 생성하여 코드 리뷰와 승인을 받은 후 main 브랜치에 병합합니다.
+
+작업 절차
+
+Issue 생성
+
+feature 브랜치 생성
+
+파일 작성 및 커밋
+
+Pull Request 생성 및 Issue 연동
+
+팀원 코드 리뷰 및 피드백 반영
+
+승인 후 main 브랜치에 병합
+
+
+<img src="./graph.png" alt="그래프">
