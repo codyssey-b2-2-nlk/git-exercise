@@ -18,21 +18,31 @@
 
 ## `reset --soft`
 
-- 일시와 작업자:
-- 상황:
-- 실행 전 커밋:
-- 실행한 명령:
-- index와 working tree 상태:
-- 다시 작성한 커밋:
-- 확인 결과:
+- 일시와 작업자: 2026-09-19, JaeHoon Lee
+- 상황: 팀 기여 기록 안내를 커밋한 뒤 제목의 `contribtuion` 오타를
+  발견했다. 원격에 올리기 전이라 변경 내용은 유지하고 커밋만 다시
+  작성했다.
+- 실행 전 커밋: `73a1603be92b3e629d92740a0596ad1e1f4a847f`
+- 실행한 명령: `git reset --soft HEAD^`
+- index와 working tree 상태: `team/README.md`의 4줄 변경이 index에
+  staged 상태로 남았고 unstaged 변경은 없었다.
+- 다시 작성한 커밋: `052bba8a08640d3b57ea0e1f37e638b80bd4a858`
+  (`docs/team: describe contribution records`)
+- 확인 결과: 전후 커밋의 tree 내용은 같고 커밋 제목의 오타만 바로잡힌
+  것을 `git diff 73a1603 052bba8`과 `git log -2 --oneline`으로 확인했다.
 
 ## `revert`
 
-- 일시와 작업자:
-- 되돌릴 커밋과 이유:
+- 일시와 작업자: 2026-09-19, JaeHoon Lee
+- 되돌릴 커밋과 이유: `1dd9d95579c71ba5a9b3134bcddfbc67b8009e9f`가
+  루트 `README.md`에 실수로 `wiort`를 추가했기 때문에 공유 이력을
+  지우지 않고 역변경을 남겼다.
 - 실행한 명령:
+  `git revert -s --no-edit 1dd9d95579c71ba5a9b3134bcddfbc67b8009e9f`
 - 생성된 revert 커밋:
-- 확인 결과:
+  `a487aedada62ac19bb7cb7faa1b85c58324e706b`
+- 확인 결과: `git show --stat a487aed`에서 `README.md`의 2줄 삭제를
+  확인했고, 원래 커밋과 revert 커밋이 모두 이력에 남아 있다.
 
 ## `stash`
 
