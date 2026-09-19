@@ -12,6 +12,9 @@
 - 실행 후 커밋: `ec50144e631db7e35a6b3cc4a29d71bcaaffcfa0`
 - 확인 결과: reflog에서 amend와 전후 커밋을 확인했고, 작업 브랜치와
   원격 브랜치가 새 커밋을 가리킨다.
+- 후속 확인: 이 커밋의 `Reviewed-by` 이메일에서 닫는 `>`가 빠졌지만
+  PR #1로 `main`에 이미 병합됐다. 공유 이력을 다시 쓰지 않고 이후
+  커밋과 `CONTRIBUTING.md` 예시에 올바른 trailer를 기록했다.
 
 ## `reset --soft`
 
