@@ -48,6 +48,7 @@ Document the message format used by the team so that commit history is
 consistent and searchable.
 
 Signed-off-by: JaeHoon Lee <dlwognsdc610@gmail.com>
+Reviewed-by: Sanghwa-Na <bdn980@gmail.com>
 ```
 
 `Reviewed-by` trailer는 실제로 해당 변경을 검토한 사람의 동의를 받은
