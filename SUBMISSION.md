@@ -64,7 +64,7 @@ review 또는 line comment URL을 기록한다.
 | 사례 | 난이도 | 해결 커밋 또는 PR |
 | --- | --- | --- |
 | 1 | 일반 | TBD |
-| 2 | 비자명 | TBD |
+| 2 | 비자명 | [`b2e92f2`](https://github.com/dlwognsdc610-maker/git-exercise/commit/b2e92f29cf51553baa0aeb94bf8993d66cf711e2) |
 
 ### Git 트러블슈팅
 
