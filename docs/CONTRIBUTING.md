@@ -1,191 +1,82 @@
-# Commit Rules:
-Convention:
+# 협업 가이드
 
-Example:
+## GitHub Flow
 
-```
-docs/CONTRIBUTE.md: commit example
+`main`을 항상 병합 가능한 상태로 유지하고 작업마다 짧은 브랜치를 만든다.
+모든 변경은 PR과 팀원 리뷰를 거쳐 `main`에 병합한다.
+작은 단위로 자주 병합하면 충돌과 변경 범위를 함께 줄일 수 있다.
 
-initial commit for example, write file
-name and message.
+## 작업 순서
 
-#add Trailer:
-Signed-off-by: JaeHoon Lee <dlwognsdc610@gmail.com>
-reviewed-by: Reviewer <email>
+1. 최신 `main`에서 작업 브랜치를 만든다.
+2. 한 가지 목적의 변경을 작은 커밋으로 작성한다.
+3. 브랜치를 push하고 PR을 연다.
+4. 본인이 아닌 팀원에게 리뷰를 요청한다.
+5. 리뷰를 반영한 커밋과 답글을 남긴다.
+6. 승인 후 PR로 `main`에 병합한다.
 
-```
-
-# Contributing Guide
-
-## 브랜치 전략 (GitHub Flow)
-
-- `main`: 항상 정상적으로 동작하는 상태를 유지합니다.
-- `feature/*`: 기능 추가, 문서 작성 등 작업 단위별로 생성합니다.
-- 모든 작업은 `feature/*` 브랜치에서 진행하고 PR을 통해 `main`에 병합합니다.
-
-우리 팀은 작업 내용을 분리하고 서로의 변경 사항을 안전하게 확인하기 위해 GitHub Flow를 사용합니다.  
-PR을 통해 코드 리뷰와 변경 이력을 남길 수 있습니다.  
-또한 구조가 단순하여 소규모 팀 협업에 적합합니다.
-
-## 브랜치 네이밍 규칙
-
-아래 형식을 사용합니다.
+브랜치 이름은 `<type>/<short-description>` 형식을 사용한다.
 
 ```text
-feature/<name>-<topic>
+feat/add-score-command
+fix/empty-name
+docs/commit-convention
 ```
 
-예시:
+## 커밋 메시지 규칙
+
+제목은 `<type>[/<scope>]: <summary>` 형식을 사용한다.
+
+| type | 용도 |
+| --- | --- |
+| `feat` | 새로운 기능 |
+| `fix` | 버그 수정 |
+| `docs` | 문서 변경 |
+| `refactor` | 동작을 바꾸지 않는 코드 정리 |
+| `test` | 테스트 추가 또는 수정 |
+| `chore` | 설정, 빌드, 저장소 관리 |
+
+- 제목은 변경 내용을 구체적으로 나타낸다.
+- `test commit`, `update`처럼 의미가 드러나지 않는 제목은 사용하지 않는다.
+- 본문에는 변경 이유와 필요한 배경을 적는다.
+- 서로 다른 목적의 변경은 별도 커밋으로 나눈다.
 
 ```text
-feature/kim-math-utils
-feature/lee-readme
-feature/park-string-utils
-```
+docs/CONTRIBUTING.md: add commit conventions
 
-## Commit Rules
-
-### Convention
-
-커밋 메시지는 아래 형식을 사용합니다.
-
-```text
-type: 작업 내용
-```
-
-주요 type:
-
-```text
-feat: 기능 추가
-fix: 오류 수정
-docs: 문서 수정
-refactor: 코드 정리
-```
-
-예시:
-
-```text
-docs: CONTRIBUTING.md에 커밋 규칙 추가
-
-feat: 문자열 변환 함수 추가
-
-fix: 빈 문자열 처리 오류 수정
-```
-
-다음과 같이 변경 내용을 알기 어려운 메시지는 사용하지 않습니다.
-
-```text
-update
-fix
-wip
-temp
-final
-```
-
-### Commit Example
-
-커밋 메시지에는 어떤 파일 또는 기능을 수정했는지 알 수 있도록 작성합니다.
-
-예시:
-
-```text
-docs: CONTRIBUTING.md에 커밋 예시 추가
-```
-
-필요한 경우 본문에 변경 내용을 추가합니다.
-
-```text
-docs: CONTRIBUTING.md에 커밋 예시 추가
-
-커밋 메시지 작성 방법과 Trailer 사용 방법을 추가한다.
-```
-
-### Trailer
-
-커밋 하단에는 작성자와 리뷰어 정보를 Trailer 형식으로 추가할 수 있습니다.
-
-예시:
-
-```text
-docs: CONTRIBUTING.md에 커밋 예시 추가
-
-커밋 메시지 작성 방법과 Trailer 사용 방법을 추가한다.
+Document the message format used by the team so that commit history is
+consistent and searchable.
 
 Signed-off-by: JaeHoon Lee <dlwognsdc610@gmail.com>
-Reviewed-by: Reviewer <email>
+Reviewed-by: Sanghwa-Na <bdn980@gmail.com>
 ```
 
-`Signed-off-by`는 해당 커밋 작성자를 나타내고, `Reviewed-by`는 해당 변경 내용을 검토한 리뷰어를 나타냅니다.
+`Reviewed-by` trailer는 실제로 해당 변경을 검토한 사람의 동의를 받은
+경우에만 추가한다. 과제의 코드 리뷰 증빙은 trailer가 아니라 GitHub PR의
+review와 실질적인 코멘트 링크로 남긴다.
 
-`Signed-off-by`는 아래 명령으로 자동 추가할 수 있습니다.
+## PR과 코드 리뷰
 
-```bash
-git commit -s -m "docs: CONTRIBUTING.md에 커밋 예시 추가"
-```
+PR 하나에는 한 가지 목적의 변경만 포함한다. 작성자는 관련 문서나
+이슈를 연결하고, PR 본문에 다음 세 항목을 작성한다.
 
-## PR 규칙
+- `What`: 무엇을 변경했는가
+- `Why`: 왜 이 변경이 필요한가
+- `How to Test`: 변경을 어떻게 확인할 수 있는가
 
-PR 본문에는 아래 내용을 작성합니다.
+세 항목 중 하나라도 빠졌다면 review 전에 작성자에게 보완을 요청한다.
 
-```text
-What: 무엇을 변경했는지
-Why: 왜 변경했는지
-How: 어떻게 확인했는지
-Closes #이슈번호
-```
+리뷰어는 `LGTM`만 남기지 않는다. 라인이나 파일을 근거로 질문, 대안,
+리스크 또는 개선안 중 하나 이상을 구체적으로 작성한다. 작성자는 수정
+커밋이나 답글로 처리 결과를 남긴다.
 
-예시:
+PR과 리뷰 링크는 루트의 [`SUBMISSION.md`](../SUBMISSION.md)에 기록한다.
 
-```text
-What:
-- 문자열 변환 함수를 추가했습니다.
+## 충돌과 히스토리
 
-Why:
-- 문자열 관련 유틸 기능이 필요하여 추가했습니다.
-
-How:
-- 로컬에서 함수를 실행하여 결과를 확인했습니다.
-
-Closes #3
-```
-
-PR은 최소 1명의 리뷰와 승인을 받은 후 `main`에 병합합니다.
-
-## 코드 리뷰 규칙
-
-`LGTM`, `좋습니다`, `확인했습니다`와 같은 단순한 의견만 작성하지 않습니다.
-
-코드 또는 문서의 구체적인 부분을 확인하고 의견을 작성합니다.
-
-예시:
-
-```text
-이 함수는 빈 문자열이 들어오는 경우도 처리하면 좋을 것 같습니다.
-```
-
-```text
-변수 이름을 조금 더 명확하게 변경하면 코드 이해가 쉬울 것 같습니다.
-```
-
-PR 작성자는 리뷰 의견을 확인하고 수정하거나 답글을 남깁니다.
-
-## 충돌 대응 흐름
-
-충돌이 발생하면 아래 순서로 처리합니다.
-
-```text
-충돌 발생
-→ 관련 팀원에게 공유
-→ 충돌 내용 확인
-→ 해결 방법 결정
-→ 충돌 해결
-→ 정상 동작 확인
-→ commit 및 push
-→ conflict-resolution.md에 기록
-```
-
-충돌 해결 과정은 아래 문서에 기록합니다.
-
-```text
-docs/conflict-resolution.md
-```
+- `main`을 포함한 공유 브랜치에서 임의로 history를 다시 쓰지 않는다.
+- force push와 rebase는 영향을 받는 팀원 전원의 합의 후에만 수행한다.
+- 충돌 해결 과정은 [`conflict-resolution.md`](conflict-resolution.md)에
+  원인, 선택, 검증과 함께 기록한다.
+- amend, reset, revert, stash 실습은
+  [`troubleshooting-log.md`](troubleshooting-log.md)에 기록한다.
